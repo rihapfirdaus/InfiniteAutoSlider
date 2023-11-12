@@ -1,0 +1,54 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    background: #E3E3E3;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+}
+
+/* set scroll animation */
+/* RULES: calc(${width of slide-item + margin left + margin right}px * ${total slide-item}) */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-280px * 4)); }
+}
+
+.slider {
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 960px; /* You can adjust or delete this line */
+}
+
+/* RULES: calc(${width of slide-item + margin left + margin right}px * ${(total slide)*2}) */
+.slide-track {
+    animation: scroll 5s linear infinite; /* You can set the time to any number of seconds */
+    display: flex;
+    width: calc(280px * 8);
+}
+
+.slide-track:hover {
+    animation-play-state: paused;
+}
+
+.slide-item {
+    width: 250px;
+    margin: 15px;
+    border-radius: 10px;
+    transition: transform 0.5s, box-shadow 0.5s; /* Added transition for smooth effect */
+}
+
+.slide-item:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    box-shadow: 0 10px 5px -5px rgba(0, 0, 0, 0.678);
+    
+}
