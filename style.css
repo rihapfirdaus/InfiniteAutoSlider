@@ -24,9 +24,14 @@ body h1, body h2{
 
 /* set scroll animation */
 /* RULES: calc(${width of slide-item + margin left + margin right}px * ${total slide-item}) */
-@keyframes scroll {
+@keyframes scroll-left {
     0% { transform: translateX(0); }
     100% { transform: translateX(calc(-280px * 4)); }
+}
+
+@keyframes scroll-right {
+    0% { transform: translateX(calc(-280px * 4)); }
+    100% { transform: translateX(0); }
 }
 
 .slider {
@@ -38,9 +43,16 @@ body h1, body h2{
 
 /* RULES: calc(${width of slide-item + margin left + margin right}px * ${(total slide)*2}) */
 .slide-track {
-    animation: scroll 5s linear infinite; /* You can set the time to any number of seconds */
     display: flex;
     width: calc(280px * 8);
+}
+
+.slide-track.left{
+    animation: scroll-left 12s linear infinite; /* You can set the time to any number of seconds */
+}
+
+.slide-track.right{
+    animation: scroll-right 12s linear infinite; /* You can set the time to any number of seconds */
 }
 
 .slide-track:hover {
